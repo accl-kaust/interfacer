@@ -35,7 +35,7 @@ setup(
     license="MIT",
     keywords=["verilog", "EDA", "hdl", "rtl", "synthesis",
               "FPGA", "Xilinx", "Partial Reconfiguration"],
-    url="https://github.com/warclab/interfacer",
+    url="https://github.com/accl-kaust/interfacer",
     long_description=read('README.md'),
     classifiers=[
         "Development Status :: 4 - Beta",
