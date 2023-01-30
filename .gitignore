@@ -1,0 +1,13 @@
+bin
+lib
+pyvenv.cfg
+.vscode
+site
+__pycache__
+parser.out
+parsetab.py
+*.egg-info
+build
+dist
+.Xil
+*.log

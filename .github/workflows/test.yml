@@ -1,0 +1,27 @@
+name: Test
+on:
+  push:
+    branches: 
+      - master
+      - main
+  pull_request:
+    branches:
+      - '*'
+
+jobs:
+  test:
+    runs-on: ubuntu-20.04
+    steps:
+      - name: checkout repo content
+        uses: actions/checkout@v2 # checkout the repository content to github runner.
+      - name: setup python
+        uses: actions/setup-python@v2
+        with:
+          python-version: 3.9 #install the python needed
+      - name: pytest
+        run: |
+          pip3 install -e . && pytest tests
+      # - name: pytests
+      #   uses: cclauss/GitHub-Action-for-pytest@master
+      #   with:
+      #     args: pip3 install -r requirements.txt && pytest tests
