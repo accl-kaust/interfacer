@@ -1,0 +1,97 @@
+{
+  "design": {
+    "design_info": {
+      "boundary_crc": "0x0",
+      "device": "xc7z020clg400-2",
+      "name": "design_1",
+      "synth_flow_mode": "Hierarchical",
+      "tool_version": "2018.3"
+    },
+    "design_tree": {
+      "pr_wrapper_0": ""
+    },
+    "components": {
+      "pr_wrapper_0": {
+        "vlnv": "xilinx.com:module_ref:pr_wrapper:1.0",
+        "xci_name": "design_1_pr_wrapper_0_0",
+        "reference_info": {
+          "ref_type": "hdl",
+          "ref_name": "pr_wrapper",
+          "boundary_crc": "0x0"
+        },
+        "ports": {
+          "CLK_0": {
+            "type": "clk",
+            "direction": "I"
+          },
+          "RST_0": {
+            "type": "rst",
+            "direction": "I"
+          },
+          "enable_0": {
+            "type": "ce",
+            "direction": "I"
+          },
+          "CLK_1": {
+            "type": "clk",
+            "direction": "I"
+          },
+          "RST_1": {
+            "type": "rst",
+            "direction": "I"
+          },
+          "enable_1": {
+            "type": "ce",
+            "direction": "I"
+          },
+          "toot_0": {
+            "direction": "I"
+          },
+          "value_0": {
+            "direction": "I",
+            "left": "16",
+            "right": "0"
+          },
+          "led_0": {
+            "direction": "O",
+            "left": "7",
+            "right": "0"
+          },
+          "toot_1": {
+            "direction": "I"
+          },
+          "value_1": {
+            "direction": "I",
+            "left": "16",
+            "right": "0"
+          },
+          "led_1": {
+            "direction": "O",
+            "left": "7",
+            "right": "0"
+          }
+        }
+      }
+    },
+    "nets": {
+      "Net": {
+        "ports": [
+          "pr_wrapper_0/CLK_0",
+          "pr_wrapper_0/CLK_1"
+        ]
+      },
+      "Net1": {
+        "ports": [
+          "pr_wrapper_0/RST_0",
+          "pr_wrapper_0/RST_1"
+        ]
+      },
+      "Net2": {
+        "ports": [
+          "pr_wrapper_0/enable_0",
+          "pr_wrapper_0/enable_1"
+        ]
+      }
+    }
+  }
+}

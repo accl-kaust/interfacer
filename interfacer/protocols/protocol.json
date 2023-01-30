@@ -1,0 +1,392 @@
+{
+    "VERSION": "0.0.2",
+    "PROTOCOLS": {
+        "SIGNAL": {
+            "CLOCK": {
+                "DIRECTION": "input",
+                "PARAMETERS": {
+                    "PRAGMA": "(* X_INTERFACE_PARAMETER = \"ASSOCIATED_BUSIF {0}, ASSOCIATED_RESET {1}, ASSOCIATED_CLKEN {2}\" *)"
+                },
+                "INFO": {
+                    "PRAGMA": "(* X_INTERFACE_INFO = \"xilinx.com:signal:clock:1.0 {0} {1}\" *)",
+                    "INTERFACE": {
+                        "CLK": {
+                            "REQUIRED": true,
+                            "ALTERNATIVES": [
+                                "aclk",
+                                "clk",
+                                "clock"
+                            ],
+                            "DIRECTION": "input"
+                        }
+                    }
+                }
+            },
+            "CLOCK_ENABLE": {
+                "DIRECTION": "input",
+                "PARAMETERS": {
+                    "PRAGMA": "(* X_INTERFACE_PARAMETER = \"POLARITY {0}\" *)"
+                },
+                "INFO": {
+                    "PRAGMA": "(* X_INTERFACE_INFO = \"xilinx.com:signal:clockenable:1.0 {0} {1}\" *)",
+                    "INTERFACE": {
+                        "CE": {
+                            "REQUIRED": true,
+                            "ALTERNATIVES": [
+                                "ce",
+                                "clock_enable"
+                            ],
+                            "DIRECTION": "input"
+                        }
+                    }
+                }
+            },
+            "ENABLE": {
+                "DIRECTION": "input",
+                "INFO": {
+                    "PRAGMA": "(* X_INTERFACE_INFO = \"xilinx.com:signal:enable:1.0 {0} {1}\" *)",
+                    "INTERFACE": {
+                        "CE": {
+                            "REQUIRED": true,
+                            "ALTERNATIVES": [
+                                "en",
+                                "enable"
+                            ],
+                            "DIRECTION": "input"
+                        }
+                    }
+                }
+            },
+            "RESET": {
+                "DIRECTION": "input",
+                "PARAMETERS": {
+                    "PRAGMA": "(* X_INTERFACE_PARAMETER = \"POLARITY {0}\" *)"
+                },
+                "INFO": {
+                    "PRAGMA": "(* X_INTERFACE_INFO = \"xilinx.com:signal:reset:1.0 {0} {1}\" *)",
+                    "INTERFACE": {
+                        "RST": {
+                            "REQUIRED": true,
+                            "ALTERNATIVES": [
+                                "aresetn",
+                                "areset",
+                                "rst",
+                                "reset"
+                            ],
+                            "DIRECTION": "input"
+                        }
+                    }
+                }
+            },
+            "INTERRUPT": {
+                "DIRECTION": "output",
+                "PARAMETERS": {
+                    "PRAGMA": "(* X_INTERFACE_PARAMETER = \"SENSITIVITY {0}\" *)"
+                },
+                "INFO": {
+                    "PRAGMA": "(* X_INTERFACE_INFO = \"xilinx.com:signal:interrupt:1.0 {0} {1}\" *)",
+                    "INTERFACE": {
+                        "INTERRUPT": {
+                            "REQUIRED": false,
+                            "ALTERNATIVES": [
+                                "irq",
+                                "interrupt"
+                            ],
+                            "DIRECTION": "output"
+                        }
+                    }
+                }
+            },
+            "GPIO_IN": {
+                "DIRECTION": "input",
+                "INFO": {
+                    "PRAGMA": "",
+                    "INTERFACE": {
+                        "GPIO": {
+                            "REQUIRED": false,
+                            "ALTERNATIVES": [
+                                "gpio",
+                                "pin"
+                            ],
+                            "DIRECTION": "input"
+                        }
+                    }
+                }
+            },
+            "GPIO_OUT": {
+                "DIRECTION": "output",
+                "INFO": {
+                    "PRAGMA": "",
+                    "INTERFACE": {
+                        "GPIO": {
+                            "REQUIRED": false,
+                            "ALTERNATIVES": [
+                                "gpio",
+                                "pin"
+                            ],
+                            "DIRECTION": "output"
+                        }
+                    }
+                }
+            }
+        },
+        "AXI": {
+            "STREAM_MASTER": {
+                "DIRECTION": "output",
+                "PARAMETERS": {
+                    "PRAGMA": "(* X_INTERFACE_PARAMETER = \"{0}\" *)",
+                    "PARAM": {
+                        "CLK_DOMAIN": "string",
+                        "PHASE": "float",
+                        "FREQ_HZ": "float",
+                        "LAYERED_METADATA": "string",
+                        "HAS_TLAST": "bool",
+                        "HAS_TKEEP": "bool",
+                        "HAS_TSTRB": "bool",
+                        "HAS_TREADY": "bool",
+                        "TUSER_WIDTH": "int",
+                        "TID_WIDTH": "int",
+                        "TDEST_WIDTH": "int",
+                        "TDATA_NUM_BYTES": "int"
+                    }
+                },
+                "INFO": {
+                    "PRAGMA": "(* X_INTERFACE_INFO = \"xilinx.com:interface:axis:1.0 {0} {1}\" *)",
+                    "INTERFACE": {
+                        "TID": {
+                            "REQUIRED": false,
+                            "DIRECTION": "output"
+                        },
+                        "TDEST": {
+                            "REQUIRED": false,
+                            "DIRECTION": "output"
+                        },
+                        "TDATA": {
+                            "REQUIRED": true,
+                            "DIRECTION": "output"
+                        },
+                        "TSTRB": {
+                            "REQUIRED": false,
+                            "DIRECTION": "output"
+                        },
+                        "TKEEP": {
+                            "REQUIRED": false,
+                            "DIRECTION": "output"
+                        },
+                        "TLAST": {
+                            "REQUIRED": false,
+                            "DIRECTION": "output"
+                        },
+                        "TUSER": {
+                            "REQUIRED": false,
+                            "DIRECTION": "output"
+                        },
+                        "TVALID": {
+                            "REQUIRED": true,
+                            "DIRECTION": "output"
+                        },
+                        "TREADY": {
+                            "REQUIRED": true,
+                            "DIRECTION": "input"
+                        }
+                    }
+                }
+            },
+            "STREAM_SLAVE": {
+                "DIRECTION": "input",
+                "PARAMETERS": {
+                    "PRAGMA": "(* X_INTERFACE_PARAMETER = \"{0}\" *)",
+                    "PARAM": {
+                        "CLK_DOMAIN": "string",
+                        "PHASE": "float",
+                        "FREQ_HZ": "float",
+                        "LAYERED_METADATA": "string",
+                        "HAS_TLAST": "bool",
+                        "HAS_TKEEP": "bool",
+                        "HAS_TSTRB": "bool",
+                        "HAS_TREADY": "bool",
+                        "TUSER_WIDTH": "int",
+                        "TID_WIDTH": "int",
+                        "TDEST_WIDTH": "int",
+                        "TDATA_NUM_BYTES": "int"
+                    }
+                },
+                "INFO": {
+                    "PRAGMA": "(* X_INTERFACE_INFO = \"xilinx.com:interface:axis:1.0 {0} {1}\" *)",
+                    "INTERFACE": {
+                        "TID": {
+                            "REQUIRED": false,
+                            "DIRECTION": "input"
+                        },
+                        "TDEST": {
+                            "REQUIRED": false,
+                            "DIRECTION": "input"
+                        },
+                        "TDATA": {
+                            "REQUIRED": true,
+                            "DIRECTION": "input"
+                        },
+                        "TSTRB": {
+                            "REQUIRED": false,
+                            "DIRECTION": "input"
+                        },
+                        "TKEEP": {
+                            "REQUIRED": false,
+                            "DIRECTION": "input"
+                        },
+                        "TLAST": {
+                            "REQUIRED": false,
+                            "DIRECTION": "input"
+                        },
+                        "TUSER": {
+                            "REQUIRED": false,
+                            "DIRECTION": "input"
+                        },
+                        "TVALID": {
+                            "REQUIRED": true,
+                            "DIRECTION": "input"
+                        },
+                        "TREADY": {
+                            "REQUIRED": true,
+                            "DIRECTION": "output"
+                        }
+                    }
+                }
+            },
+            "LITE_SLAVE": {
+                "DIRECTION": "input",
+                "PARAMETERS": {
+                    "PRAGMA": "(* X_INTERFACE_PARAMETER = \"{0}\" *)",
+                    "PARAM": {
+                        "CLK_DOMAIN": "string",
+                        "PHASE": "float",
+                        "FREQ_HZ": "float",
+                        "LAYERED_METADATA": "string",
+                        "HAS_TLAST": "bool",
+                        "HAS_TKEEP": "bool",
+                        "HAS_TSTRB": "bool",
+                        "HAS_TREADY": "bool",
+                        "TUSER_WIDTH": "int",
+                        "TID_WIDTH": "int",
+                        "TDEST_WIDTH": "int",
+                        "TDATA_NUM_BYTES": "int"
+                    }
+                },
+                "INFO": {
+                    "PRAGMA": "(* X_INTERFACE_INFO = \"xilinx.com:interface:aximm:1.0 {0} {1}\" *)",
+                    "INTERFACE": {
+                        "AWVALID": {
+                            "REQUIRED": true,
+                            "DIRECTION": "input"
+                        },
+                        "AWREADY": {
+                            "REQUIRED": true,
+                            "DIRECTION": "output"
+                        },
+                        "AWPROT": {
+                            "REQUIRED": false,
+                            "DIRECTION": "input"
+                        },
+                        "AWADDR": {
+                            "REQUIRED": true,
+                            "DIRECTION": "input"
+                        },
+                        "WVALID": {
+                            "REQUIRED": true,
+                            "DIRECTION": "input"
+                        },
+                        "WREADY": {
+                            "REQUIRED": true,
+                            "DIRECTION": "output"
+                        },
+                        "WDATA": {
+                            "REQUIRED": true,
+                            "DIRECTION": "input"
+                        },
+                        "WSTRB": {
+                            "REQUIRED": true,
+                            "DIRECTION": "input"
+                        },
+                        "ARVALID": {
+                            "REQUIRED": true,
+                            "DIRECTION": "input"
+                        },
+                        "ARPROT": {
+                            "REQUIRED": false,
+                            "DIRECTION": "input"
+                        },
+                        "ARREADY": {
+                            "REQUIRED": true,
+                            "DIRECTION": "output"
+                        },
+                        "ARADDR": {
+                            "REQUIRED": true,
+                            "DIRECTION": "input"
+                        },
+                        "RVALID": {
+                            "REQUIRED": true,
+                            "DIRECTION": "output"
+                        },
+                        "RREADY": {
+                            "REQUIRED": true,
+                            "DIRECTION": "input"
+                        },
+                        "RDATA": {
+                            "REQUIRED": true,
+                            "DIRECTION": "output"
+                        },
+                        "RRESP": {
+                            "REQUIRED": true,
+                            "DIRECTION": "output"
+                        },
+                        "BVALID": {
+                            "REQUIRED": true,
+                            "DIRECTION": "output"
+                        },
+                        "BREADY": {
+                            "REQUIRED": true,
+                            "DIRECTION": "input"
+                        },
+                        "BRESP": {
+                            "REQUIRED": true,
+                            "DIRECTION": "output"
+                        }
+                    }
+                }
+            }
+        },
+        "IO": {
+            "IIC_MASTER": {
+                "DIRECTION": "output",
+                "PARAMETERS": {
+                    "PRAGMA": "(* X_INTERFACE_PARAMETER = \"{0}\" *)",
+                    "PARAM": {
+                        "CLK_DOMAIN": "string",
+                        "PHASE": "float",
+                        "FREQ_HZ": "float"
+                    }
+                },
+                "INFO": {
+                    "PRAGMA": "(* X_INTERFACE_INFO = \"xilinx.com:interface:iic:1.0 {0} {1}\" *)",
+                    "INTERFACE": {
+                        "SDA": {
+                            "REQUIRED": true,
+                            "ALTERNATIVES": [
+                                "sda"
+                            ],
+                            "DIRECTION": "output"
+                        },
+                        "SLK": {
+                            "REQUIRED": true,
+                            "ALTERNATIVES": [
+                                "scl",
+                                "clk"
+                            ],
+                            "DIRECTION": "output"
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
