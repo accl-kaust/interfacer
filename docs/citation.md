@@ -9,7 +9,7 @@ If you wish to reference this work please use the following `bibtex` entry:
   year = {2021},
   publisher = {GitHub},
   journal = {GitHub repository},
-  howpublished = {\url{https://github.com/warclab/interfacer}},
+  howpublished = {\url{https://github.com/accl-kaust/interfacer}},
 }
 ```
 
